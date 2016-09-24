@@ -43,10 +43,10 @@ warning("The function merge.with.order only accepts NULL/1/2 values for the keep
 snip <- read.tree(treefile)
 mapping <- read.delim(mapfile, header=FALSE, sep="")
 df <- snip$tip.label
-colnames(df) <- "V1")
+colnames(df) <- "V2"
 
-nam <- merge.with.order(df, mapping, by="V1", sort=FALSE)
-nam$V3 <- as.integer(nam$V2)
+nam <- merge.with.order(df, mapping, by="V2", sort=FALSE)
+nam$V3 <- as.integer(nam$V1)
 nam$V3 <- as.factor(nam$V3)
 library(RColorBrewer)
 color_palette_function <- colorRampPalette(colors=brewer.pal(12, "Paired"), space="Lab")
@@ -57,3 +57,4 @@ plot(as.phylo(snip), tip.color=diamond_color_colors[coler], type="fan", cex=0.5,
 dev.off()
 pdf("Treephylogramoutput.pdf")
 plot(as.phylo(snip), tip.color=diamond_color_colors[coler], cex=0.5, no.margin=TRUE)
+dev.off()
