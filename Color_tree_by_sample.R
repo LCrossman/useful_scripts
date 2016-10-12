@@ -42,10 +42,10 @@ warning("The function merge.with.order only accepts NULL/1/2 values for the keep
 
 snip <- read.tree(treefile)
 mapping <- read.delim(mapfile, header=FALSE, sep="")
-df <- snip$tip.label
+df <- data.frame(snip$tip.label)
 colnames(df) <- "V2"
 
-nam <- merge.with.order(df, mapping, by="V2", sort=FALSE)
+nam <- merge.with.order(df, mapping, by="V2", sort=FALSE, all.x=TRUE, keep_order=TRUE)
 nam$V3 <- as.integer(nam$V1)
 nam$V3 <- as.factor(nam$V3)
 library(RColorBrewer)
