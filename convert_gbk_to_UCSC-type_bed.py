@@ -32,5 +32,5 @@ for rec in records:
                 gene = locustag
             product = ''.join(feature.qualifiers['product'])
             tagnum = locustag.split('_')
-            numtag = int(tagnum[-1])
+            numtag = tagnum[-1]
             print("{}\t{}\t{}\t{}\t4\t{}\t{}\t{}\tprotein-coding\t{}\t{}\t{}\t{}\t{}".format(chr,start,end,gene,strand,locustag,numtag,product,start,end,start,end))
